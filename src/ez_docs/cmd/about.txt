@@ -2,7 +2,7 @@
 
 	This project was developed by Software Engineering students at the University of Brasilia - Campus Gama (UnB-FGA) - during the 2022.2 semester, in the course of Software Development Methods (SDM), under the guidance of prof. Dr. Carla Rocha Aguiar.
 
-Contributors:	
+Contributors	
 
 Bruno Campos Ribeiro  (https://github.com/brunoriibeiro);					
 Bruno Martins Valério Bomfim (https://github.com/gitbmvb);
