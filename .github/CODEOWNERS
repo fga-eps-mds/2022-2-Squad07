@@ -20,3 +20,6 @@
 
 # Approver to docs files
 /docs/ @BrunoRiibeiro
+
+# Approver to test files
+/test/ @LucasBergholz @igorpenhaa
