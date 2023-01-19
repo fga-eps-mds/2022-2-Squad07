@@ -1,4 +1,5 @@
 import pandas as pd
+from usable import find_delimiter
 
 def filter_data(location):
     start_data = []
@@ -7,7 +8,7 @@ def filter_data(location):
     try:
         #Checks if extension is csv, xlsx or html
         extension = location.split(".")[-1]
-        if extension == "csv": start_data = pd.read_csv(location)
+        if extension == "csv": start_data = pd.read_csv(location, delimiter=find_delimiter(location))
         elif extension == "html": start_data = pd.read_html(location)
         elif extension == "json": start_data = pd.read_json(location)
         elif extension == "xlsx": start_data = pd.read_excel(location)
