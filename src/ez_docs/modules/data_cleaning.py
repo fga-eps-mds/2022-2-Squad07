@@ -1,17 +1,15 @@
 import pandas as pd
 
-#Finds out which non alphanumeric character separates a given csv file
+#Finds out which non-alphanumeric character separates a given csv file
 def find_delimiter(location: str) -> str:
     delimiters_dict = {}
     file = open(location).read()
     delimiters_list = list(set([char for char in file if not (char.isalpha() or char.isspace() or char.isdigit())]))
     for line in file.split("\n"):
         for delimiter in delimiters_list:
-            if not delimiter in delimiters_dict.keys():
-                delimiters_dict[delimiter] = []
+            if not delimiter in delimiters_dict.keys(): delimiters_dict[delimiter] = []
             delimiters_dict[delimiter].append(len(line.split(delimiter)))
-    for delimiter in delimiters_dict.keys():
-        delimiters_dict[delimiter] = len(set(delimiters_dict[delimiter]))
+    for delimiter in delimiters_dict.keys(): delimiters_dict[delimiter] = len(set(delimiters_dict[delimiter]))
     delimiters_dict = sorted(delimiters_dict.items(), key=lambda item: item[1])
     return delimiters_dict[0][0]
 
@@ -37,7 +35,6 @@ def filter_data(location: str) -> list:
         final_data = []
         for line in range(len(start_data)):
             final_data.append({})
-            for col in list(start_data.columns):
-                final_data[line][col] = str(start_data.iloc[line][col])
+            for col in list(start_data.columns): final_data[line][col] = str(start_data.iloc[line][col])
         return final_data
     except FileNotFoundError: raise Exception("\033[0;31mThe dataset file was not found.\nPlease, make sure you have typed a correct file name.\033[0m")
