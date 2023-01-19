@@ -44,18 +44,3 @@ class CallCommand(argparse.Action):
            print(data)
         #Close the parser
         parser.exit()
-
-#Finds out which non alphanumeric character separates a given csv file
-def find_delimiter(location: str) -> str:
-    delimiters_dict = {}
-    file = open(location).read()
-    delimiters_list = list(set([char for char in file if not (char.isalpha() or char.isspace() or char.isdigit())]))
-    for line in file.split("\n"):
-        for delimiter in delimiters_list:
-            if not delimiter in delimiters_dict.keys():
-                delimiters_dict[delimiter] = []
-            delimiters_dict[delimiter].append(len(line.split(delimiter)))
-    for delimiter in delimiters_dict.keys():
-        delimiters_dict[delimiter] = len(set(delimiters_dict[delimiter]))
-    delimiters_dict = sorted(delimiters_dict.items(), key=lambda item: item[1])
-    return delimiters_dict[0][0]

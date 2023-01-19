@@ -11,9 +11,3 @@ def test_progress_bar_error(capsys):
     out, err = capsys.readouterr()
     out = out[len("\x1b[93m(1/10)\x1b[0m  10.00% [\x1b[96m") :-len("\x1b[0m]\n")]
     assert out != "#####"
-
-def test_find_delimiter():
-    assert find_delimiter("test/teams1.csv") == ","
-    assert find_delimiter("test/teams2.csv") == ";"
-    assert find_delimiter("test/teams3.csv") == "\\"
-    assert find_delimiter("test/teams4.csv") == "~"
