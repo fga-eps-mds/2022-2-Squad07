@@ -48,5 +48,5 @@ def doc_generator(directory_template: str, key_value: dict, file_name_key: str, 
         for key in key_value.keys():
             text = loc_sub(text, key, key_value[key])
         input_file.write(text)
-    if flag == 1:
+    if flag == '1':
         os.system(f"mdpdf -o ./output/{filename}.pdf ./output/{filename}.md")

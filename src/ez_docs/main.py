@@ -20,7 +20,7 @@ def mk_docs(dict_args: dict):
     print(f"Elapsed time: {time.time() - initial_time : 1.2f}s")
         
 
-    if dict_args['flag'] == 1:
+    if dict_args['flag'] == '1':
         clean_dir_md()
 
 def main():
@@ -29,7 +29,7 @@ def main():
     parser.add_argument('--architecture', nargs=0, help='Architecture stuff', action=CallCommand)
     parser.add_argument('--help', nargs=0, help='How to use it', action=CallCommand)
     parser.add_argument('--list', nargs=0, help='Command list', action=CallCommand)
-    parser.add_argument('--flag', help='Flag to output file extension. 0 for .md, 1 for .pdf', default=1)
+    parser.add_argument('--flag', help='Flag to output file extension. 0 for .md, 1 for .pdf', default='1')
     parser.add_argument('template_directory', help='Template dictionary.')
     parser.add_argument('base_directory', help='Database directory.')
     parser.add_argument('file_name_pattern', help='Output file pattern name.')
