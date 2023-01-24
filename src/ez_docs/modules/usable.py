@@ -3,7 +3,7 @@ import glob
 import argparse
 from sys import argv, stdout
 import importlib.resources
-from ez_docs import cmd
+import cmd
 
 
 def verify_folder_output():
