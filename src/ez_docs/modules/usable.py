@@ -4,7 +4,7 @@ import argparse
 from sys import argv, stdout
 import importlib.resources
 from ez_docs import cmd
-
+import shutil
 
 def verify_folder_output():
     # Check whether the specified path exists or not
@@ -30,6 +30,12 @@ def progress_bar(index: int, amount: int, char: str, final_length: int = 25):
     print(f"\033[93m({index}/{amount})\033[0m {index * 100/amount: 1.2f}% [\033[96m", end='')
     charline = "".join([char for _ in range(round(final_length*index/amount))])
     print(charline + "\033[0m]")
+
+def zipfolder(foldername, target_dir):            
+    folder_to_zip = foldername
+    output_zip = target_dir
+
+    shutil.make_archive(output_zip, "zip", folder_to_zip)
 
 class CallCommand(argparse.Action):
     def __call__(self, parser, namespace, values, option_string):
