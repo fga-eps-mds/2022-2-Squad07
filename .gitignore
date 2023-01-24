@@ -3,3 +3,4 @@ mdpdf.log
 src/build
 src/ez_docs.egg-info
 src/dist
+__pycache__

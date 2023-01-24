@@ -38,7 +38,7 @@ def zipfolder(foldername, target_dir):
     output_zip = target_dir
 
     shutil.make_archive(output_zip, "zip", folder_to_zip)
-
+    shutil.rmtree("output")
 class CallCommand(argparse.Action):
     def __call__(self, parser, namespace, values, option_string):
         #Catch the last argument given in the sys.arg
