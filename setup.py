@@ -11,7 +11,7 @@ long_description = readme
 cmds = ["cmd/*.txt"]
 setup (
     name ='ez_docs',
-    version ='1.0.1',
+    version ='1.1.0',
     author ='Bruno Ribeiro, Bruno Martins, Diógenes Dantas, Igor Penha, Lucas Gobbi e Rafael Nobre',
     author_email ='rafaelmedeirosnobre2001@gmail.com',
     url='https://github.com/fga-eps-mds/2022-2-ez-docs',
