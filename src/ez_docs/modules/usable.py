@@ -5,7 +5,6 @@ from sys import argv, stdout
 import importlib.resources
 from ez_docs import cmd
 import shutil
-import cmd
 
 
 def verify_folder_output():
