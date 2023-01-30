@@ -1,0 +1,21 @@
+=====About this project=====
+
+	This project was developed by Software Engineering students at the University of Brasilia - Campus Gama (UnB-FGA) - during the 2022.2 semester, in the course of Software Development Methods (SDM), under the guidance of prof. Dr. Carla Rocha Aguiar.
+
+Contributors	
+
+Bruno Campos Ribeiro  (https://github.com/brunoriibeiro);					
+Bruno Martins Valério Bomfim (https://github.com/gitbmvb);
+Diógenes Dantas Lélis Júnior (https://github.com/diogjunior100);
+Igor e Silva Penha (https://github.com/igorpenhaa);
+Lucas Gobbi Bergholz (https://github.com/LucasBergholz);
+Rafael de Medeiros Nobre (https://github.com/RafaelN0bre);
+
+	The general purpose of the course was to learn and deepen about the different types of existing approaches for creating software through agile practices. The most used were Scrum and Extreme Programming (XP).
+	So, we contribute to the Open Source community with that small and functional project, called ez-docs, which helps users to issue a wide range of certificates, declarations, resumes, receipts, slips, or whatever else the imagination allows through a database and a template in markdown format.
+
+	We would like to thank the prof. Carla and all whom warmly welcomed us during this journey.
+
+	We would be very grateful if you would like to contribute with us!
+
+	“No matter the circumstance you can always improve. You can always start improving with yourself. You can always start improving today.” ― Kent Beck, creator of XP.

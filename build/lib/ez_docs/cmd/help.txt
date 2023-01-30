@@ -1,0 +1,50 @@
+=====How to use mkdocs=====
+
+## Prerequisites
+
+Before starting, make sure you've met the following requirements:
+* You have installed the latest version of `<Python>`.
+* You have a `<Windows / Linux / Mac>` machine.
+* You read the [project GitPage](https://fga-eps-mds.github.io/2022-2-Squad07/index.html).
+
+
+## Installation
+
+To install *ez-docs*, open an interactive shell and run:
+```bash
+$ python<version> -m pip install ez-docs
+```
+
+## Using ez-docs
+
+To start using *ez-docs*, you'll need a markdown template, a database (.csv, .txt, xls) and a pattern of keys.
+
+* directory_template: str - template folder .md
+* key_name_file: str - parameter concerning the denominator key of the document name, which must follow the format {key_name}.
+For example, for a template that has the keys "name" and "registration", the output could be "name_registration", generating the following results:
+    - Aaron_3141592653.pdf
+    - Barnardo_2718281828.pdf
+    - Caliban_4815162342.pdf
+
+    Valid separators: registration_name, registration-name, registration:name, registration name.
+* key_value: dict - dictionary with all the keys and their respective values, already extracted from the module that handled
+	the data.
+    - Structure:
+    ```python
+    {
+        "NAME": "Diomedes",
+        "CLASS": "Databases",
+        "DATE": "23 November 2022",
+        "TIN": "161.803.398-87",
+        "REGISTRATION": "1123581321"
+    }
+    ```
+    Keys are arbitrary in nature, which means that their names, quantities, and repetitions are uncertain. All will be searched within the template: those found will be replaced by the corresponding value, and those that are not will be indicated in the terminal via warning.
+* flag: int - optional parameter that defines the final output format.
+    - 1 (def.) - The doc will be converted to .pdf
+    - 2 - The doc will remain in .md
+
+With that, you may open an interactive shell and run:
+```bash
+$ ez-docs <~/template.md> <~/database> <~/pattern_keys> --flag = 1 or 2
+```
