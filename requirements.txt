@@ -1,4 +1,4 @@
 mdpdf==0.0.18
 pandas==1.5.2
 pytest==7.2.0
-bumpversion==1.0.1
+bumpversion==0.6.0
