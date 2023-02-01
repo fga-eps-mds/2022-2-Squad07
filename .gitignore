@@ -4,3 +4,5 @@ src/build
 src/ez_docs.egg-info
 src/dist
 __pycache__
+dados.csv
+template.md
