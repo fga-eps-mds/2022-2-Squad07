@@ -5,7 +5,7 @@ name: Python Package Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "refactor3" ]
   pull_request:
     branches: [ "main" ]
 
