@@ -1,4 +1,4 @@
-from ez_docs.modules.data_cleaning import filter_data, find_delimiter
+from src.ez_docs.modules.data_cleaning import filter_data, find_delimiter
 
 final_data = [
     {'nome': 'Bruno', 'idade': '18'},
