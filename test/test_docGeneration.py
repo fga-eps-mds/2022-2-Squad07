@@ -1,4 +1,4 @@
-from src.ez_docs.modules.doc_generation import *
+from ez_docs.modules.doc_generation import *
 
 key_value = {
     "NOME": "Wallace",

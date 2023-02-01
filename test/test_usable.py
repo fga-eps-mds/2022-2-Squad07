@@ -1,4 +1,4 @@
-from src.ez_docs.modules.usable import*
+from ez_docs.modules.usable import*
 
 def test_progress_bar(capsys):
     progress_bar(4, 10, "#", 10)
