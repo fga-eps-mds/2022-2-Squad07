@@ -26,6 +26,9 @@ def filter_format(location: str) -> pd.DataFrame:
 
 #Checks if a given line passes a specified condition
 def passes_constraint(const: list, dataset: pd.DataFrame, line):
+    # constr[0] = field
+    # constr[1] = operator
+    # constr[2] = value
     if not const: return True
     else:
         if const[0] not in dataset.columns: raise Exception("\033[0;31mInvalid constraint.\033[0m")
