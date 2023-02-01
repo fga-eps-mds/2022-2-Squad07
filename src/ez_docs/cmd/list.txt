@@ -1,6 +1,9 @@
 =====List of commands=====
 
---about				Project overview, contributors, etc;
---architecture		Architecture documentation;		
---help				How to use tutorial;
---list				List of all command line commands;
+--about             Project overview, contributors, etc;
+--architecture      Architecture documentation;		
+--constraint        Set your data set filtering constraints (3 arguments);
+--flag              Flag to output file extension (0 = .md, 1 = .pdf);
+--help              How to use tutorial;
+--list              List of all command line commands;
+--zip               Define if the output folder is compacted (1 = yes, 0 = no (def.));
