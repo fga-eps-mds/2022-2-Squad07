@@ -28,8 +28,8 @@ def filter_format(location: str) -> pd.DataFrame:
 def passes_constraint(const: list, dataset: pd.DataFrame, line):
     if not const: return True
     else:
-        if const[0] not in dataset.columns: raise Exception("")
-        if (type(line[const[0]]) is int and const[1] not in [">", ">=", "<", "<=", "==", "!="]) or (type(line[const[0]]) is str and const[1] not in ["==", "!="]): raise Exception("")
+        if const[0] not in dataset.columns: raise Exception("\033[0;31mInvalid constraint.\033[0m")
+        if (type(line[const[0]]) is int and const[1] not in [">", ">=", "<", "<=", "==", "!="]) or (type(line[const[0]]) is str and const[1] not in ["==", "!="]): raise Exception("\033[0;31mInvalid constraint.\033[0m")
         if (type(line[const[0]]) is int) and eval(f"{line[const[0]]} {const[1]} {const[2]}"): return True
         if type(line[const[0]]) is str:
             if("*" in const[2][0] and "*" in const[2][-1] and const[2].strip("*") in line[const[0]]): return True
