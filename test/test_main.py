@@ -1,4 +1,4 @@
-from ez_docs.main import *
+from main import *
 import shutil
 
 # "template.md example.csv name_idade"
