@@ -7,7 +7,8 @@ example = {
     "template_directory": "test/template.md",
     "base_directory": "test/example.csv",
     "file_name_pattern": "nome_idade",
-    "flag": 1
+    "flag": 1,
+    'zip': 0
 }
 
 def test_mk_docs():
@@ -25,10 +26,11 @@ def test_mk_docs_error():
 def test_main(monkeypatch):
     def mock_parse_args(self):
         return argparse.Namespace(
+            zip = 0,
             flag = 1,
             template_directory='template.md',
             base_directory='dados.csv', file_name_pattern='NOME_MATRICULA',
-            _get_kwargs=lambda: {'flag': 1, 'template_directory': 'test/template.md', 'base_directory': 'test/example.csv', 'file_name_pattern': 'nome_idade'}
+            _get_kwargs=lambda: {'flag': 1, 'template_directory': 'test/template.md', 'base_directory': 'test/example.csv', 'file_name_pattern': 'nome_idade', 'zip': 0}
         )
     monkeypatch.setattr(argparse.ArgumentParser, 'parse_args', mock_parse_args)
     main()
@@ -40,9 +42,10 @@ def test_main_error(monkeypatch):
     def mock_parse_args(self):
         return argparse.Namespace(
             flag = 1,
+            zip = 0,
             template_directory='template.md',
             base_directory='dados.csv', file_name_pattern='NOME_MATRICULA',
-            _get_kwargs=lambda: {'flag': 1, 'template_directory': 'test/template.md', 'base_directory': 'test/example.csv', 'file_name_pattern': 'nome_idade'}
+            _get_kwargs=lambda: {'flag': 1, 'template_directory': 'test/template.md', 'base_directory': 'test/example.csv', 'file_name_pattern': 'nome_idade', 'zip': '0'}
         )
     monkeypatch.setattr(argparse.ArgumentParser, 'parse_args', mock_parse_args)
     main()
