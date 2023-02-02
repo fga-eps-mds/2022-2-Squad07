@@ -35,7 +35,7 @@ def main():
     parser.add_argument('--list', nargs=0, help='Command list', action=CallCommand)
     parser.add_argument('--flag', help='Flag to output file extension. 0 for .md, 1 for .pdf', default='1')
     parser.add_argument('--zip', help='Define if the output folder is compacted. 1 for yes, 0 for no.', default='0')
-    parser.add_argument('--constraint', help='Set your data set filtering constraints', nargs=3)
+    parser.add_argument('--constraint', help='Set your data set filtering constraints', nargs=1)
     parser.add_argument('template_directory', help='Template dictionary.')
     parser.add_argument('base_directory', help='Database directory.')
     parser.add_argument('file_name_pattern', help='Output file pattern name.')

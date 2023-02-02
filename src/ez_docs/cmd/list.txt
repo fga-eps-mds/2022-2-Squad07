@@ -2,7 +2,7 @@
 
 --about             Project overview, contributors, etc;
 --architecture      Architecture documentation;		
---constraint        Set your data set filtering constraints (3 arguments);
+--constraint        Set your data set filtering constraints (quoted expression);
 --flag              Flag to output file extension (0 = .md, 1 = .pdf);
 --help              How to use tutorial;
 --list              List of all command line commands;

@@ -59,7 +59,7 @@ The terminal ought to print something like this:
 
 ## Using ez-docs
 
-To start using *ez-docs*, you'll need a markdown template, a database (.csv, .txt, .xls) and a pattern of keys.
+To start using *ez-docs*, you'll need a markdown template, a database (.csv, .xlsx, .json) and a pattern of keys.
 
 * directory_template: str - template.md
     
@@ -80,9 +80,16 @@ For example, for a template that has the keys "name" and "registration", the out
 
     Valid separators: registration_name, registration-name, registration:name, registration name.
 
-* flag: int - optional parameter that defines the final output format.
+* flag: int - optional parameter that defines the final format of each document.
     - 1 (def.) - The doc will be converted to .pdf
     - 2 - The doc will remain in .md
+
+* zip: int - optional parameter that defines the final format of the set.
+    - 0 (def.) - The set will be kept at folder ./output;
+    - 1 - The files will be joint in a output.zip;
+
+* constraint: str - optional parameter that sets a constraint for data filtering.
+    Exemple: Suppose you have a data set of students' grades, and you would like to generate a certificate for those whose grades are greater or equal than 8. In this case, you could simply type: "... --constraint 'Grade >= 8.0' (assuming you really have a column named "Grade").
 
 With that, you may open an interactive shell and run:
 ```bash
