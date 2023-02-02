@@ -17,7 +17,7 @@ def test_progress_bar_error(capsys):
     assert out != "#####"
 
 def test_zipfolder():
-    foldername = "test_folder"
+    foldername = "testing_folder"
     target_dir = "test_zip"
     
     # Create a test folder
