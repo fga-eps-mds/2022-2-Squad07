@@ -46,6 +46,7 @@ def test_main_error(monkeypatch):
             zip = 0,
             template_directory='template.md',
             base_directory='dados.csv', file_name_pattern='NOME_MATRICULA',
+
             _get_kwargs=lambda: {'flag': 1, 'template_directory': 'test/template.md', 'base_directory': 'test/example.csv', 'file_name_pattern': 'nome_idade', 'zip': '0', "constraint": ""}
         )
     monkeypatch.setattr(argparse.ArgumentParser, 'parse_args', mock_parse_args)
