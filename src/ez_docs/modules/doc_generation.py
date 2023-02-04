@@ -12,7 +12,8 @@ def loc_sub(text, key, value):
 
 
 def slugify(value, allow_unicode=False):
-    # Taken from https://github.com/django/django/blob/master/django/utils/text.py
+    # Taken from
+    # https://github.com/django/django/blob/master/django/utils/text.py
     """
     # Convert to ASCII if 'allow_unicode' is False. Convert spaces or repeated
     # dashes to single dashes. Remove characters that aren't alphanumerics,
@@ -23,7 +24,11 @@ def slugify(value, allow_unicode=False):
     if allow_unicode:
         value = unicodedata.normalize('NFKC', value)
     else:
-        value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
+        value = (
+            unicodedata.normalize('NFKD', value)
+            .encode('ascii', 'ignore')
+            .decode('ascii')
+        )
     value = re.sub(r'[^\w\s-]', '', value.lower())
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
@@ -37,7 +42,11 @@ def recognize_file_name(key_value: str, file_name_key: str):
     return slugify(final_name)
 
 
-def doc_generator(directory_template: str, key_value: dict, file_name_key: str, flag: int = 1):
+def doc_generator(
+        directory_template: str,
+        key_value: dict,
+        file_name_key: str,
+        flag: int = 1):
     # Open the indicated directory.
     with open(directory_template, "r", encoding="utf-8") as input_file:
         text = input_file.read()
