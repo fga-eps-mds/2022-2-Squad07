@@ -28,16 +28,15 @@ def clean_dir_md():
     os.remove('mdpdf.log')
 
 
-def progress_bar(index: int, amount: int, char: str, final_length: int = 25):
+# idx - index
+# amt - amount
+def progress_bar(idx: int, amt: int, char: str, final_length: int = 25):
     stdout.write("\033[F\033[K\033[F\033[K\033[F\033[K")
+    out = f"\033[93m({idx}/{amt})\033[0m {idx * 100/amt: 1.2f}% [\033[96m"
     print(
-        f"""
-            \033[93m({index}/{amount})\033
-            [0m {index * 100/amount: 1.2f}% [\033[96m
-        """,
-        end=''
+        out, end=''
     )
-    charline = "".join([char for _ in range(round(final_length*index/amount))])
+    charline = "".join([char for _ in range(round(final_length*idx/amt))])
     print(charline + "\033[0m]")
 
 
