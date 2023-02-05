@@ -20,9 +20,9 @@ setup(
         Igor Penha,
         Lucas Gobbi e Rafael Nobre
     """,
-    author_email='rafaelmedeirosnobre2001@gmail.com',
+    author_email='ezdocsteam@gmail.com',
     url='https://github.com/fga-eps-mds/2022-2-ez-docs',
-    description='Um pacote python de geração de documentos automáticos',
+    description='A python package to quick doc generation',
     long_description=long_description,
     long_description_content_type="text/markdown",
     license='MIT',
