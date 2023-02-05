@@ -6,30 +6,6 @@ ez-docs is a MVP (minimum viable product) Python project that were build for an 
 
 So, we contribute to the Open Source community with ez-docs, which helps users to issue a wide range of certificates, declarations, resumes, receipts, slips, or whatever else the imagination allows through a database and a template in markdown format.
 
-#### Realised features
-
-- [x] Generate doc's in .pdf [#20](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/20)
-- [ ] e-mail generated doc's [#24](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/24)
-- [x] Package pip installation [#30](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/30)
-- [x] Argparse commands [#39](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/39)
-- [x] Run package via CLI [#43](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/43)
-
-#### Realised doc's
-
-- [x] Github Page [#31](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/31)
-- [x] README [#32](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/32)
-- [x] Product Backlog [#33](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/33)
-- [x] about [#39](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/39)
-- [x] architecture [#39](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/39)
-- [x] help [#39](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/39)
-- [x] list [#39](https://github.com/fga-eps-mds/2022-2-ez-docs/issues/39)
-
-#### Bugs
-
-* Semicolon separator on .csv files not working.
-* Format .xlsx
-* key_pattern optionality.
-* flag=1/flag=2 always generating .md files.
 
 ## Prerequisites
 
@@ -63,12 +39,12 @@ To start using *ez-docs*, you'll need a markdown template, a database (.csv, .xl
 
 * directory_template: str - template.md
     
-   In your markdown template you must to indicate the fields that you want to replace for the values in database, with the following pattern of keys:  <<SAME_DATABASE_COLUMN_NAME>> 
+   In your markdown template you must to indicate the fields that you want to replace for the values in database, with the following pattern of keys:  <<SAME_DATABASE_COLUMN_NAME>> . You can use images in your markdown but can't use HTML and CSS tags.
        
 
     ![Template file example](/docs/images/template.png "Template file example")
 
-* database: str - database.(csv, txt, xls)
+* database: str - database.(csv, txt, xlsx)
     
     ![Database file example](/docs/images/database.png "Database file example")
 
@@ -81,8 +57,8 @@ For example, for a template that has the keys "name" and "registration", the out
     Valid separators: registration_name, registration-name, registration:name, registration name.
 
 * flag: int - optional parameter that defines the final format of each document.
+    - 0 - The doc will remain in .md
     - 1 (def.) - The doc will be converted to .pdf
-    - 2 - The doc will remain in .md
 
 * zip: int - optional parameter that defines the final format of the set.
     - 0 (def.) - The set will be kept at folder ./output;
@@ -93,7 +69,7 @@ For example, for a template that has the keys "name" and "registration", the out
 
 With that, you may open an interactive shell and run:
 ```bash
-$ ez-docs <~/template.md> <~/database.csv> <pattern_keys> --flag=1 or 2
+$ ez-docs <~/template.md> <~/database.csv> <pattern_keys> --flag=0 or 1 --zip=0 or 1
 ```
 
 ![](/docs/images/exampleofuse.gif)
@@ -130,6 +106,8 @@ $ ez-docs --list
 5. Send to origin branch: `git push origin <branch_name> / <local>`
 6. Create pull request through Github.
 
+## Contact us
+You may email to [ezdocsteam@gmail.com](mailto:ezdocsteam@gmail.com). We would be happy to answer your questions and set up a meeting with you.
 
 ## Open source licensing info
 
