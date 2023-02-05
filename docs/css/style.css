@@ -326,7 +326,7 @@ a:focus {
 /* slider section */
 .slider_section {
   color: #ffffff;
-  margin-top: 80px;
+  margin-top: 3%;
 }
 
 .slider_section .container {
@@ -472,7 +472,7 @@ a:focus {
 }
 
 .service_section .service_container .box .detail-box {
-  margin-top: 20px;
+  margin-top: 300px;
 }
 
 .service_section .service_container .box .detail-box h5 {
@@ -573,6 +573,16 @@ a:focus {
 
 .detail-box a:hover{
   color: #582fd7;
+}
+
+#flag{
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 3%;
+}
+
+.ct3{
+  height: 50px;
 }
 
 .team_section .heading_container {

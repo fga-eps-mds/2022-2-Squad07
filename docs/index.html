@@ -112,6 +112,44 @@
     <div class="container">
       <div class="feature_container2">
         <h2>
+          Welcome to ez-docs
+        </h2>
+        <div class="service_text">
+          <p>
+            Ez-docs is a MVP (minimum viable product) Python project
+            that were build for an SDM (Software Development Methods)
+            class, with the aim of learn the goals of different
+            approaches for creating software through agile practices.
+          </p> 
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="service_section layout_padding-bottom">
+    <div class="container">
+      <div class="feature_container2">
+        <h2>
+          Prerequisites
+        </h2>
+        <div class="service_text">
+          <p>
+            Before starting, make sure you've met the following requirements:
+            
+            <br>-> You have installed the latest version of &ltPython&gt.
+            <br> -> You have a &ltWindows / Linux / Mac&gt machine.
+          </p> 
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="service_section layout_padding-bottom">
+    <div class="container">
+      <div class="feature_container2">
+        <h2>
           Installation
         </h2>
         <div class="service_text">
@@ -149,15 +187,13 @@
               <div class="service_text">
                 <p>
                   In today's version of 'ez-docs', the user needs a markdown template,
-                  a database (.csv, .txt or .xls), the pattern of the variables and
-                  choose a flag, which will correspond to the type of file the package will create.
-                  The value 1 of the flag creates pdf files, while 2 will create markdown files.
+                  a database (.csv, .txt or .xls) and the pattern of the variables.
                   Opening your terminal, the user should type something similar to:
                 </p>
                 <p class="code_text ct2">
                     ez-docs &ltpath to .md template&gt
                     &ltpath to database&gt
-                    &ltpattern of variables&gt --flag=1 or 2
+                    &ltpattern of variables&gt
                 </p>
               </div>
             </div>
@@ -200,7 +236,7 @@
           <p>
             The final part is to go to your terminal and follow the "How To Use" step. Remember
             to write the path to your template and database correctly and to write your file name pattern
-            with the corrects separators.
+            with the correct separator.
           </p>
           <img src="images/exampleofuse.gif" alt="" class="img_database">
           <p>
@@ -213,6 +249,47 @@
               Git Repository
             </a>
           </button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="service_section layout_padding-bottom">
+    <div class="container">
+      <div class="feature_container2">
+        <h2>
+          Features
+        </h2>
+        <div class="service_text">
+          <p>
+            The ez-docs package has a few features that could be handfull for the user, such as: "--flag",
+            "--constraint" and "--zip".
+          </p>
+          <p><p id="flag" style="display:inline">Flag: </p> The flag defines the file format of the output. For default,
+          flag is equal to 1, which will produce pdf files in the output. If the user chooses
+          to pass a diferente value for the flag, it will produce markdown files. Make sure you don't add spaces between the flag and the equal sign.</p>
+          <p class="code_text ct3">
+            ez-docs &ltpath to .md template&gt
+            &ltpath to database&gt
+            &ltpattern of variables&gt --flag=&lt0 or 1&gt
+          </p>
+          <p><p id="flag" style="display:inline">Zip: </p> The zip feature is to define if the output folder
+          is a zip file or not. For default, zip equals zero, which means the output is a normal file, but if the user chooses to
+          change the zip to 1, the output will be the zip file.</p>
+          <p class="code_text ct3">
+            ez-docs &ltpath to .md template&gt
+            &ltpath to database&gt
+            &ltpattern of variables&gt --zip=&lt0 or 1&gt
+          </p>
+          <p><p id="flag" style="display:inline">Constraint: </p> The constraint is used to delimit the amount of
+          documents created. This delimitation is set by the user, which can be such as only grades higher then X value,
+          or course equal to engineering, or something similar to this.</p>
+          <p class="code_text ct3">
+            ez-docs &ltpath to .md template&gt
+            &ltpath to database&gt
+            &ltpattern of variables&gt --constraint= &ltCourse = = Art&gt
+          </p>
         </div>
       </div>
     </div>
