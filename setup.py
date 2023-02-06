@@ -41,5 +41,5 @@ setup(
         "Operating System :: OS Independent",
     ),
 
-    install_requires = requirements
+    install_requires=requirements
 )
