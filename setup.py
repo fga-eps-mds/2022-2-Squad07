@@ -12,7 +12,7 @@ cmds = ["cmd/*.txt"]
 
 setup(
     name='ez_docs',
-    version='1.0.1',
+    version='1.0.3',
     author="""
         Bruno Ribeiro,
         Bruno Martins,
@@ -20,9 +20,9 @@ setup(
         Igor Penha,
         Lucas Gobbi e Rafael Nobre
     """,
-    author_email='rafaelmedeirosnobre2001@gmail.com',
+    author_email='ezdocsteam@gmail.com',
     url='https://github.com/fga-eps-mds/2022-2-ez-docs',
-    description='Um pacote python de geração de documentos automáticos',
+    description='A python package to quick doc generation',
     long_description=long_description,
     long_description_content_type="text/markdown",
     license='MIT',
@@ -39,5 +39,7 @@ setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-    )
+    ),
+
+    install_requires=requirements
 )
