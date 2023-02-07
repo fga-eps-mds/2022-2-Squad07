@@ -106,6 +106,9 @@ $ ez-docs --list
 5. Send to origin branch: `git push origin <branch_name> / <local>`
 6. Create pull request through Github.
 
+## Product Backlog
+To get access to the project backlog, click [here](docs/BACKLOG.md).
+
 ## Contact us
 You may email to [ezdocsteam@gmail.com](mailto:ezdocsteam@gmail.com). We would be happy to answer your questions and set up a meeting with you.
 
