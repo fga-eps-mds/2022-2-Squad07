@@ -2,6 +2,14 @@ import re
 import unicodedata
 import os
 
+def verify_patterns(patterns: list) -> bool:
+    opposite = {">": "<", "<": ">", "/": "\\", "\\": "/", "{": "}", "}":"{", "[": "]", "]":"[", "(": ")", ")": "("}
+    for p in patterns:
+        if not "key" in p or p.count("key") > 1: return False
+        left, right = p.split("key")
+        right_for_comparasion = "".join([opposite[char] if char in opposite.keys() else char for char in right])[::-1]
+        if left != right_for_comparasion or len(left) > 3 or len(left) < 2: return False
+    return True
 
 def loc_sub(text, key, value):
     # Find the keys using sub-strings.
