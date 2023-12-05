@@ -1,11 +1,15 @@
 import argparse
 import time
-from ez_docs.modules.doc_generation import doc_generator
-from ez_docs.modules.usable import verify_folder_output
-from ez_docs.modules.usable import progress_bar
-from ez_docs.modules.usable import clean_dir_md, zipfolder, CallCommand
-from ez_docs.modules.data_cleaning import filter_data
-
+# from ez_docs.modules.doc_generation import doc_generator
+# from ez_docs.modules.usable import verify_folder_output
+# from ez_docs.modules.usable import progress_bar
+# from ez_docs.modules.usable import clean_dir_md, zipfolder, CallCommand
+# from ez_docs.modules.data_cleaning import filter_data
+from modules.doc_generation import doc_generator
+from modules.usable import verify_folder_output
+from modules.usable import progress_bar
+from modules.usable import clean_dir_md, zipfolder, CallCommand
+from modules.data_cleaning import filter_data
 
 def mk_docs(dict_args: dict):
     verify_folder_output()
@@ -15,7 +19,8 @@ def mk_docs(dict_args: dict):
         doc_generator(
             dict_args['template_directory'],
             dataset[index], dict_args['file_name_pattern'],
-            dict_args['flag']
+            dict_args['flag'],
+            patterns=dict_args["patterns"]
         )
         progress_bar(index + 1, len(dataset), '#')
 
@@ -76,6 +81,12 @@ def main():
     parser.add_argument(
         'file_name_pattern',
         help='Output file pattern name.'
+    )
+    parser.add_argument(
+        '--patterns',
+        help='Define valid patterns for keys recognition.',
+        nargs='+',
+        default='0'
     )
     args = parser.parse_args()
     mk_docs(dict(args._get_kwargs()))

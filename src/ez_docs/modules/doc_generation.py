@@ -5,19 +5,31 @@ import os
 def verify_patterns(patterns: list) -> bool:
     opposite = {">": "<", "<": ">", "/": "\\", "\\": "/", "{": "}", "}":"{", "[": "]", "]":"[", "(": ")", ")": "("}
     for p in patterns:
-        if not "key" in p or p.count("key") > 1: return False
+        if not "key" in p or p.count("key") > 1:
+            return False
         left, right = p.split("key")
         right_for_comparasion = "".join([opposite[char] if char in opposite.keys() else char for char in right])[::-1]
-        if left != right_for_comparasion or len(left) > 3 or len(left) < 2: return False
+        if left != right_for_comparasion or len(left) > 3 or len(left) < 2:
+            return False
     return True
 
-def loc_sub(text, key, value):
-    # Find the keys using sub-strings.
-    pattern = f"<<{key}>>"
-    # Replace occurrences of a particular sub-string with another.
-    text = re.sub(pattern, value, text)
-    return text
-
+def loc_sub(text, key, value, patterns):
+    if patterns == '0': patterns = ["<<key>>"]
+    if verify_patterns(patterns):
+        patterns.append("<<key>>")
+        for p in patterns:
+            # Find the keys using sub-strings.
+            pattern = p.replace("key", key)
+            # Replace occurrences of a particular sub-string with another.
+            text = re.sub(pattern, value, text)
+        return text
+    else:
+         raise Exception(
+            """
+                \033[0;31mYou entered an invalid pattern expression.\n
+                Please, make sure your patterns meet the requirements.\033[0m
+            """
+        )
 
 def slugify(value, allow_unicode=False):
     # Taken from
@@ -54,7 +66,8 @@ def doc_generator(
         directory_template: str,
         key_value: dict,
         file_name_key: str,
-        flag: int = 1):
+        flag: int = 1,
+        patterns: list = None):
     # Open the indicated directory.
     with open(directory_template, "r", encoding="utf-8") as input_file:
         text = input_file.read()
@@ -63,7 +76,7 @@ def doc_generator(
     # Generates the file replacing data by data
     with open(f"./output/{filename}.md", "w+", encoding="utf-8") as input_file:
         for key in key_value.keys():
-            text = loc_sub(text, key, key_value[key])
+            text = loc_sub(text, key, key_value[key], patterns = patterns)
         input_file.write(text)
     if flag == '1':
         os.system(f"mdpdf -o ./output/{filename}.pdf ./output/{filename}.md")
