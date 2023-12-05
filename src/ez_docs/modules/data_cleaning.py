@@ -51,18 +51,3 @@ def filter_data(location: str, constraint: str = "") -> list:
             """
         )
 
-def filter_format(file_path):
-    supported_extensions = {
-        'csv': pd.read_csv,
-        'xlm': pd.read_xml,
-        'json': pd.read_json,
-        'html': pd.read_html,
-        'xlsx': pd.read_excel
-    }
-    
-    extension = file_path.split('.')[-1]
-    
-    if extension in supported_extensions:
-        return supported_extensions[extension](file_path)
-    else:
-        raise ValueError("The extension", '{extension}', "is not accepted.\n Valid: csv, html, json, xlsx, xml.")
