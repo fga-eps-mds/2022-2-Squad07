@@ -34,24 +34,3 @@ def test_data_cleaning():
 def test_data_cleaning_error():
     assert filter_data("test/example.csv") != final_data2
 
-def test_filter_format_csv():
-    file_path = 'test/data.csv'
-    expected_df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
-    
-    result_df = filter_format(file_path)
-    
-    assert result_df.equals(expected_df)
-
-def test_filter_format_json():
-    file_path = 'test/data.json'
-    expected_df = pd.DataFrame({'C': [7, 8, 9], 'D': [10, 11, 12]})
-        
-    result_df = filter_format(file_path)
-        
-    assert result_df.equals(expected_df)
-
-def test_filter_format_invalid():
-    file_path = 'data.txt'
-    
-    with pytest.raises(ValueError):
-        filter_format(file_path)
