@@ -46,16 +46,18 @@ def doc_generator(
         directory_template: str,
         key_value: dict,
         file_name_key: str,
-        flag: int = 1):
+        flag: int = 1,
+        output_folder = str):
     # Open the indicated directory.
     with open(directory_template, "r", encoding="utf-8") as input_file:
         text = input_file.read()
         input_file.close()
     filename = recognize_file_name(key_value, file_name_key)
+    os.makedirs(output_folder, exist_ok=True)
     # Generates the file replacing data by data
-    with open(f"./output/{filename}.md", "w+", encoding="utf-8") as input_file:
+    with open(f"./{output_folder}/{filename}.md", "w+", encoding="utf-8") as input_file:
         for key in key_value.keys():
             text = loc_sub(text, key, key_value[key])
         input_file.write(text)
     if flag == '1':
-        os.system(f"mdpdf -o ./output/{filename}.pdf ./output/{filename}.md")
+        os.system(f"mdpdf -o ./{output_folder}/{filename}.pdf ./{output_folder}/{filename}.md")

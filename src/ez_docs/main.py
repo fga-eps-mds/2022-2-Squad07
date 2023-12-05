@@ -5,6 +5,7 @@ from ez_docs.modules.usable import verify_folder_output
 from ez_docs.modules.usable import progress_bar
 from ez_docs.modules.usable import clean_dir_md, zipfolder, CallCommand
 from ez_docs.modules.data_cleaning import filter_data
+import os
 
 
 def mk_docs(dict_args: dict):
@@ -15,7 +16,8 @@ def mk_docs(dict_args: dict):
         doc_generator(
             dict_args['template_directory'],
             dataset[index], dict_args['file_name_pattern'],
-            dict_args['flag']
+            dict_args['flag'],
+            dict_args['output_folder']
         )
         progress_bar(index + 1, len(dataset), '#')
 
@@ -64,6 +66,11 @@ def main():
     parser.add_argument(
         '--constraint',
         help='Set your data set filtering constraints', nargs=1
+    )
+    parser.add_argument(
+        'output_folder',
+        help='Output folder name.',
+        default='output'
     )
     parser.add_argument(
         'template_directory',
