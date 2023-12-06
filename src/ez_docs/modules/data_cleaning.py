@@ -21,26 +21,6 @@ def find_delimiter(location: str) -> str:
     delimiters_dict = sorted(delimiters_dict.items(), key=lambda item: item[1])
     return delimiters_dict[0][0]
 
-# Returns a pandas DataFrame according to an extension
- def filter_format(location: str) -> pd.DataFrame:
-     extension = location.split(".")[-1]
-     if extension == "csv":
-         return pd.read_csv(location, delimiter=find_delimiter(location))
-     elif extension == "html":
-         return pd.read_html(location)
-     elif extension == "json":
-         return pd.read_json(location)
-     elif extension == "xlsx":
-         return pd.read_excel(location)
-     elif extension == "xml":
-         return pd.read_xml(location)
-     else:
-         raise Exception(
-                 f"""
-                 \033[0;31mThe extension '{extension}' is not accepted.\n
-                 Valid: csv, html, json, xlsx, xml.\033[0m
-                 """
-             )
 
 # Converts the data_set to the format specified in the architecture
 def filter_data(location: str, constraint: str = "") -> list:
@@ -71,3 +51,18 @@ def filter_data(location: str, constraint: str = "") -> list:
             """
         )
 
+def filter_format(file_path):
+    supported_extensions = {
+        'csv': pd.read_csv,
+        'xlm': pd.read_xml,
+        'json': pd.read_json,
+        'html': pd.read_html,
+        'xlsx': pd.read_excel
+    }
+    
+    extension = file_path.split('.')[-1]
+    
+    if extension in supported_extensions:
+        return supported_extensions[extension](file_path)
+    else:
+        raise ValueError("The extension", '{extension}', "is not accepted.\n Valid: csv, html, json, xlsx, xml.")
