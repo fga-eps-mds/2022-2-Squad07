@@ -34,32 +34,24 @@ def test_data_cleaning():
 def test_data_cleaning_error():
     assert filter_data("test/example.csv") != final_data2
 
+def test_filter_format_csv():
+    file_path = 'test/data.csv'
+    expected_df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
+    
+    result_df = filter_format(file_path)
+    
+    assert result_df.equals(expected_df)
 
-def test_filter_format():
-     # Test with a CSV file
-     with tempfile.NamedTemporaryFile(
-         mode='w',
-         delete=False,
-         suffix='.csv'
-     ) as temp:
+def test_filter_format_json():
+    file_path = 'test/data.json'
+    expected_df = pd.DataFrame({'C': [7, 8, 9], 'D': [10, 11, 12]})
+        
+    result_df = filter_format(file_path)
+        
+    assert result_df.equals(expected_df)
 
-         temp.write("col1,col2\n1,2\n3,4")
-         temp.seek(0)
-         result = filter_format(temp.name)
-         assert isinstance(result, pd.DataFrame)
-
-     # Test with a JSON file
-     with tempfile.NamedTemporaryFile(
-         mode='w',
-         delete=False,
-         suffix='.json'
-     ) as temp:
-         temp.write('{"col1": [1, 3], "col2": [2, 4]}')
-         temp.seek(0)
-         result = filter_format(temp.name)
-         assert isinstance(result, pd.DataFrame)
-
-     # Test with an invalid extension
-     location = "path/to/invalid/file.invalid"
-     with pytest.raises(Exception):
-         filter_format(location)
+def test_filter_format_invalid():
+    file_path = 'data.txt'
+    
+    with pytest.raises(ValueError):
+        filter_format(file_path)
