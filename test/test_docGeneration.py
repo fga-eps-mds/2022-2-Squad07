@@ -1,4 +1,4 @@
-from ez_docs.modules.doc_generation import loc_sub
+from ez_docs.modules.doc_generation import loc_sub, verify_patterns
 from ez_docs.modules.doc_generation import slugify
 from ez_docs.modules.doc_generation import recognize_file_name
 
@@ -7,6 +7,12 @@ key_value = {
     "MATRICULA": "20990088"
 }
 
+def test_verify_patterns():
+    assert verify_patterns(["$$key$$", "{[(key)]}"]) == True
+    assert verify_patterns(["$$key$$", ":{key}:", "?-key-?"]) == True
+    assert verify_patterns(["&%key&%"]) == False
+    assert verify_patterns(["-->keykey<--"]) == False
+    assert verify_patterns("<<<keys>>>") == False
 
 def test_loc_sub():
     assert loc_sub("Ola <<Chave>>", "Chave", "Mundo") == "Ola Mundo"
